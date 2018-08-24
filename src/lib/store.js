@@ -1,10 +1,5 @@
-import {createStore, combineReducers} from 'redux';
-import categoryReducer from '../reducers/categoryReducer.js';
-import expenseReducer from '../reducers/expenseReducer.js';
+import {createStore, applyMiddleware} from 'redux';
+import reducer from '../reducer/categoryReducer.js';
+import formValidate from './middleware/formValidate.js';
 
-const rootReducer = combineReducers({
-    expenseReducer,
-    categoryReducer
-})
-
-export default createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+export default createStore(reducer, applyMiddleware(formValidate), window._REDUX_DEVTOOLS_EXTENSION_&& window._REDUX_DEVTOOLS_EXTENSION_())

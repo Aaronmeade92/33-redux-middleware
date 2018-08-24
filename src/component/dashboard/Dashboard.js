@@ -2,7 +2,7 @@ import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
-import { createCategory, updateCategory, destroyCategory} from '../../reducers/index';
+import { createCategory, updateCategory, destroyCategory} from '../../actions/actions.js';
 import CategoryCreateForm from '../category-form/CategoryCreateForm.js';
 import CategoryItem from '../category-item/CategoryItem.js';
 import CategoryList from '../category-list/CategoryList.js';
@@ -28,6 +28,6 @@ Dashboard.propTypes = {
     createCategory: PropTypes.func,
     updateCategory: PropTypes.func,
     destroyCategory: PropTypes.func,
-    categories: PropTypes.object,
+    categories: PropTypes.array,
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
